@@ -1,4 +1,6 @@
-FROM ubuntu:jammy
+# FROM ubuntu:jammy
+
+FROM gustavovinicius/guskafka
 
 RUN apt update
 
