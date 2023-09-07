@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    kafka:
+        build:
+            context: .
+            dockerfile: ubuntu.dockerfile
+        ports:
+            - 9092:9092
+        volumes:
+            - ./:/var/www/html
+        container_name: guskafka
+        # depends_on:
+        #     - mysql
+        #     - mailhog_yii
+        networks:
+            - gus-kafka-network
+
+networks:
+    gus-kafka-network:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: "12.0.0.0/16"
